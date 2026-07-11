@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-jiuwenmemory-plugin"
+version = "0.1.0"
+description = "Standalone JiuwenMemory MemoryProvider plugin for Hermes Agent"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "kai123-clude"}]
+keywords = ["hermes-agent", "memory", "jiuwenmemory", "plugin"]
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
