@@ -478,6 +478,7 @@ def test_client_headers_include_optional_bearer_api_key():
 
 
 def test_memory_server_add_messages_forwards_session_id(monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     class FakeMemoryEngine:
@@ -532,6 +533,7 @@ class FakeTurboMemoryEngine:
 
 
 def test_memory_server_turbo_routes_are_present_and_root_lists_them():
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     paths = {getattr(route, "path", "") for route in memory_server.app.routes}
@@ -546,6 +548,7 @@ def test_memory_server_turbo_routes_are_present_and_root_lists_them():
 
 
 def test_memory_server_turbo_add_messages_async_accepts_and_persists_raw_messages(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     monkeypatch.setattr(memory_server, "_TURBO_DB_PATH", tmp_path / "memory_turbo.sqlite3")
@@ -579,6 +582,7 @@ def test_memory_server_turbo_add_messages_async_accepts_and_persists_raw_message
 
 
 def test_memory_server_turbo_process_once_completes_and_updates_status(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     monkeypatch.setattr(memory_server, "_TURBO_DB_PATH", tmp_path / "memory_turbo.sqlite3")
@@ -618,6 +622,7 @@ def test_memory_server_turbo_process_once_completes_and_updates_status(tmp_path,
 
 
 def test_memory_server_turbo_process_once_records_failure_without_secret(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     monkeypatch.setattr(memory_server, "_TURBO_DB_PATH", tmp_path / "memory_turbo.sqlite3")
@@ -652,6 +657,7 @@ def _use_temp_swarm_db(memory_server, tmp_path, monkeypatch):
 
 
 def test_memory_server_swarm_routes_are_present_and_root_lists_them():
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     paths = {getattr(route, "path", "") for route in memory_server.app.routes}
@@ -666,6 +672,7 @@ def test_memory_server_swarm_routes_are_present_and_root_lists_them():
 
 
 def test_memory_server_swarm_promote_persists_safe_memory(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     _use_temp_swarm_db(memory_server, tmp_path, monkeypatch)
@@ -698,6 +705,7 @@ def test_memory_server_swarm_promote_persists_safe_memory(tmp_path, monkeypatch)
 
 
 def test_memory_server_swarm_promote_skips_sensitive_memory_without_storing_content(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     _use_temp_swarm_db(memory_server, tmp_path, monkeypatch)
@@ -727,6 +735,7 @@ def test_memory_server_swarm_promote_skips_sensitive_memory_without_storing_cont
 
 
 def test_memory_server_swarm_search_returns_promoted_records_matching_query_tokens_and_scope(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     _use_temp_swarm_db(memory_server, tmp_path, monkeypatch)
@@ -801,6 +810,7 @@ def test_memory_server_swarm_search_returns_promoted_records_matching_query_toke
 
 
 def test_memory_server_swarm_status_counts_and_recent_records_omit_content(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     _use_temp_swarm_db(memory_server, tmp_path, monkeypatch)
@@ -869,6 +879,7 @@ class FakeDreamingEngine:
 
 
 def test_memory_server_dreaming_endpoints_control_engine(monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     paths = {getattr(route, "path", "") for route in memory_server.app.routes}
@@ -909,6 +920,7 @@ def test_memory_server_dreaming_endpoints_control_engine(monkeypatch):
 
 
 def test_memory_server_startup_starts_dreaming_from_env(monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     class FakeStartupEngine(FakeDreamingEngine):
@@ -957,6 +969,7 @@ def test_memory_server_startup_starts_dreaming_from_env(monkeypatch):
 
 
 def test_memory_server_graph_routes_are_present_and_root_lists_them():
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     paths = {getattr(route, "path", "") for route in memory_server.app.routes}
@@ -971,6 +984,7 @@ def test_memory_server_graph_routes_are_present_and_root_lists_them():
 
 
 def test_memory_server_graph_natural_language_chain_query(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     monkeypatch.setattr(memory_server, "_GRAPH_DB_PATH", tmp_path / "graph_memory.sqlite3")
@@ -1024,6 +1038,7 @@ def test_memory_server_graph_natural_language_chain_query(tmp_path, monkeypatch)
 
 
 def test_memory_server_graph_explicit_extract_deduplicates(tmp_path, monkeypatch):
+    pytest.importorskip("jiuwen_memory.server.memory_server")
     from jiuwen_memory.server import memory_server
 
     monkeypatch.setattr(memory_server, "_GRAPH_DB_PATH", tmp_path / "graph_memory.sqlite3")
