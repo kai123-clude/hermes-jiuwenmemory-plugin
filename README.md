@@ -4,6 +4,8 @@ Standalone JiuwenMemory `MemoryProvider` plugin for Hermes Agent.
 
 This repository is meant to be installed outside the Hermes core tree, matching the upstream policy that new memory backends ship as standalone plugin repos.
 
+It also contains a reviewed snapshot of the user-local Hermes skills. See [`SKILLS.md`](SKILLS.md) and [`scripts/sync_hermes_skills.py`](scripts/sync_hermes_skills.py) for the reproducible sync process.
+
 ## Install into Hermes
 
 ```bash

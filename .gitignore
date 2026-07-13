@@ -8,4 +8,11 @@ benchmark_results/
 dist/
 build/
 
+# Generated/runtime content inside the synchronized Hermes skill snapshot.
+skills/**/.venv/
+skills/**/venv/
+skills/**/__pycache__/
+skills/**/work/
+skills/**/.pytest_cache/
+
 logs/

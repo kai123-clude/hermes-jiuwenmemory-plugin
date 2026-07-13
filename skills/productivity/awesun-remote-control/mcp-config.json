@@ -1,0 +1,9 @@
+{
+  "name": "awesun-remote-control",
+  "command": "",
+  "args": [],
+  "env": {
+    "AWESUN_API_URL": "http://127.0.0.1:8908",
+    "AWESUN_API_TOKEN": "${AWESUN_API_TOKEN}"
+  }
+}
